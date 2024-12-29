@@ -199,19 +199,10 @@
         <hr>
 
         <script type="module">
+            import { firebaseConfig } from './config.js';
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
             import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
             import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
-
-            // Your web app's Firebase configuration
-            const firebaseConfig = {
-                apiKey: "AIzaSyDCMw-6iMrI7eK_j6oCQ123Wt6SO8-brL0",
-                authDomain: "portfolio-form-fc461.firebaseapp.com",
-                projectId: "portfolio-form-fc461",
-                storageBucket: "portfolio-form-fc461.firebasestorage.app",
-                messagingSenderId: "709544243431",
-                appId: "1:709544243431:web:93bd5868e97fbe0f627242"
-            };
 
             // Initialize Firebase
             const app = initializeApp(firebaseConfig);
