@@ -84,17 +84,3 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.classList.toggle('active');
     });
 });
-
-const smoothScrollLink = document.querySelector('a[href="#targetSection"]');
-
-smoothScrollLink.addEventListener('click', function(e) {
-    e.preventDefault(); 
-
-    const targetSection = document.querySelector('#targetSection');
-
-    targetSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    });
-});
-
