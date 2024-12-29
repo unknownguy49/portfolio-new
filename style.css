@@ -54,38 +54,6 @@ footer{
     object-fit: cover;
 }
 
-form{
-    max-width: 300px;
-    margin: 20px auto;
-    background: radial-gradient(hsl(155, 100%, 79%), #c0d6ff);
-    padding: 20px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-form input[type="text"],
-form input[type="email"],
-form textarea{
-    width: 200px;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-form input[type="submit"]{
-    padding: 10px 20px;
-    background-color: #0033ff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-form input[type="submit"]:hover{
-    background-color: #ff2727;
-}
-
 hr{
     width: 50%;
     margin: 20px auto;
@@ -186,21 +154,6 @@ hr{
 
     h2 {
         font-size: 20px;
-    }
-
-    form input[type="text"],
-    form input[type="email"],
-    form textarea{
-        width: calc(100% - 20px);
-        padding: 10px;
-        margin-bottom: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-
-    }
-
-    form input[type="submit"]:hover{
-        background-color: #ff2727;
     }
 
     #projects {
@@ -311,19 +264,6 @@ hr{
 .dark-mode .links:hover{
     color: #ff6868;
     text-decoration: underline;
-}
-
-.dark-mode form{
-    background: radial-gradient(hsl(155, 100%, 50%), #2f78ff);
-    padding: 20px;
-    color:#000000;
-    font-weight: 600;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.dark-mode form input[type="submit"]{
-    font-size: 15px;
 }
 
 .dark-mode footer{
@@ -607,3 +547,55 @@ hr{
     background-color: #831bcd;
 }
 
+form { max-width:420px; margin:50px auto; }
+
+.feedback-input {
+  color:black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border:2px solid #831bcd;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus { border:2px solid #6b17a6; }
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+[type="submit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#831bcd;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+[type="submit"]:hover { background:#521180; }
+
+.dark-mode form {
+    color: #fff;
+}
+
+.dark-mode .feedback-input {
+    color: #fff;
+    border: 2px solid #fff;
+}

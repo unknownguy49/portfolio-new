@@ -51,7 +51,7 @@
         </header>
 
         <section style="padding-top: 50px; padding-bottom: 30px;">
-            <h2>Connect with Me</h2>
+            <h1>Connect with Me</h1>
             <p>Feel free to reach out to me for any queries or collaborations.</p>
             <p><a href="mailto:dibyadyutidutta49@gmail.com" class="icon-link email-icon"><i class="fa-solid fa-envelope"></i></a>
                 <a href="https://www.linkedin.com/in/dibyadyuti-dutta" class="icon-link linkedin-icon" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
@@ -63,7 +63,7 @@
         <hr>
             
         <section>
-            <h2>Skills</h2>
+            <h1>Skills</h1>
             <div class="skills-list">
                 <ul class="skills-list">
                     <li>Programming</li>
@@ -78,23 +78,23 @@
 
         <section class="horizontal-scroll">
             <div class="icon-container">
-                <img src="/assets/icon/1.webp", alt="Icon 1">
-                <img src="/assets/icon/2.webp", alt="Icon 2">
-                <img src="/assets/icon/3.webp", alt="Icon 3">
-                <img src="/assets/icon/12.webp", alt="Icon 12">
-                <img src="/assets/icon/11.webp", alt="Icon 11">
-                <img src="/assets/icon/8.webp", alt="Icon 8">
-                <img src="/assets/icon/13.webp", alt="Icon 13">
-                <img src="/assets/icon/10.webp", alt="Icon 10">
-                <img src="/assets/icon/14.webp", alt="Icon 14">
-                <img src="/assets/icon/15.webp", alt="Icon 15">
+                <img src="assets/icon/1.webp", alt="Icon 1">
+                <img src="assets/icon/2.webp", alt="Icon 2">
+                <img src="assets/icon/3.webp", alt="Icon 3">
+                <img src="assets/icon/12.webp", alt="Icon 12">
+                <img src="assets/icon/11.webp", alt="Icon 11">
+                <img src="assets/icon/8.webp", alt="Icon 8">
+                <img src="assets/icon/13.webp", alt="Icon 13">
+                <img src="assets/icon/10.webp", alt="Icon 10">
+                <img src="assets/icon/14.webp", alt="Icon 14">
+                <img src="assets/icon/15.webp", alt="Icon 15">
             </div>
         </section>
         <br><br>
         <hr>
 
         <section>
-            <h2>Education</h2>
+            <h1>Education</h1>
             <h4>Vellore Institute of Technology, AP</h4>
             <p>Bachelor of Technology in Computer Science and Engineering<br>
                 2023 - Present
@@ -107,23 +107,8 @@
         </section>
         <hr>
 
-        <section>
-            <h2>Experience</h2>
-
-            <h4>Microsoft Student Chapter VIT-AP</h4>
-            <p>Member of Outreach Team<br>
-                Feb 2024 - Present . 7 mos
-            </p>
-
-            <h4>Computer Society of India Chapter VIT-AP </h4>
-            <p>Member of Coding Team<br>
-                Oct 2023 - Present . 1 yr
-            </p>
-        </section>
-        <hr>
-
         <section id="techstack">
-            <h2>Tech Stack</h2>
+            <h1>Tech Stack</h1>
 
             <div class="tech">
                 <div class="progress-bar" data-progress="90"><p>Java</p></div>
@@ -161,7 +146,7 @@
         <hr>
 
         <section style="padding-top: 30px;" id="pr">
-            <h2>My Projects</h2>
+            <h1>My Projects</h1>
             <p>Take a look at some of my Projects</p><br>
 
             <section id="projects">
@@ -209,16 +194,76 @@
         <br><br><br>
         <hr>
 
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+            import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
+
+            // Your web app's Firebase configuration
+            const firebaseConfig = {
+                apiKey: "AIzaSyDCMw-6iMrI7eK_j6oCQ123Wt6SO8-brL0",
+                authDomain: "portfolio-form-fc461.firebaseapp.com",
+                projectId: "portfolio-form-fc461",
+                storageBucket: "portfolio-form-fc461.firebasestorage.app",
+                messagingSenderId: "709544243431",
+                appId: "1:709544243431:web:93bd5868e97fbe0f627242"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getFirestore(app);
+
+            // Get form elements
+            const nameInput = document.querySelector('input[name="name"]');
+            const emailInput = document.querySelector('input[name="email"]');
+            const textInput = document.querySelector('textarea[name="text"]');
+            const submitButton = document.querySelector('input[type="submit"]');
+
+            // Handle form submission
+            document.getElementById('myform').addEventListener('submit', async (e) => {
+                e.preventDefault(); // Prevent default form submission (page reload)
+
+                // Get values from the form fields
+                const name = nameInput.value;
+                const email = emailInput.value;
+                const text = textInput.value;
+
+                // Validate if all fields are filled
+                if (!name || !email || !text) {
+                    alert("Please fill in all fields.");
+                    return;
+                }
+
+                try {
+                    // Add feedback to Firestore
+                    await addDoc(collection(db, "feedbacks"), {
+                        name: name,
+                        email: email,
+                        text: text,
+                        timestamp: new Date()
+                    });
+
+                    // Show success message
+                    alert("Your feedback has been submitted successfully!");
+
+                    // Clear the form fields
+                    nameInput.value = '';
+                    emailInput.value = '';
+                    textInput.value = '';
+                } catch (error) {
+                    console.error("Error saving message: ", error);
+                    alert("Something went wrong. Please try again later.");
+                }
+            });
+        </script>
+        
         <section id="contact">
-            <h2>Contact Me</h2>
-            <form>
-                <label for="name">Name:</label><br>
-                <input type="text" id="name" name="name" required placeholder="Enter your name"><br>
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email" required placeholder="Enter your email"><br>
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" required placeholder="Enter your message"></textarea><br>
-                <input type="submit" value="Submit">
+            <h1>Contact Me</h1>
+            <form id="myform">      
+                <input name="name" type="text" class="feedback-input" placeholder="Name" required>   
+                <input name="email" type="email" class="feedback-input" placeholder="Email" required>
+                <textarea name="text" class="feedback-input" placeholder="Comment" required></textarea>
+                <input type="submit" value="SUBMIT">
             </form>
         </section>
         <br>
